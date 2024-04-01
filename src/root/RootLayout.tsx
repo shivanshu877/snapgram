@@ -1,14 +1,22 @@
-import React from 'react'
-import { Button } from '@/components/ui/button'
+import { Outlet } from "react-router-dom";
+
+import Topbar from "@/components/shared/Topbar";
+import Bottombar from "@/components/shared/Bottombar";
+import LeftSidebar from "@/components/shared/LeftSidebar";
+
 const RootLayout = () => {
+  return (
+    <div className="w-full md:flex">
+      <Topbar />
+      <LeftSidebar />
 
-	return (
-		<div>
-			<Button>  click me </Button>
+      <section className="flex flex-1 h-full">
+        <Outlet />
+      </section>
 
-		</div >
-	);
-
-}
+      <Bottombar />
+    </div>
+  );
+};
 
 export default RootLayout;
